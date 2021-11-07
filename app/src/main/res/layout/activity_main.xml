@@ -9,14 +9,13 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/operationResult"
+        android:id="@+id/operationText"
         android:layout_width="0dp"
         android:layout_height="72dp"
         android:layout_marginTop="4dp"
         android:gravity="end"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:text="123 x 4 ="
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -35,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
-            android:id="@+id/deleteButton"
+            android:id="@+id/backspaceButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="0"
@@ -47,6 +46,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:src="@drawable/ic_delete"
+            android:onClick="performClearOperation"
             android:textSize="14sp"
             android:contentDescription="TODO" />
 
@@ -64,6 +64,7 @@
             android:background="@color/light_grey"
             android:text="@string/percentButton"
             android:textColor="@color/black"
+            android:onClick="processOperator"
             android:textSize="24sp" />
 
         <androidx.appcompat.widget.AppCompatButton
@@ -79,11 +80,12 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:text="@string/clearOperandButton"
+            android:onClick="performClearOperation"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/clearButton"
+            android:id="@+id/clearAllButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="1"
@@ -95,6 +97,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:text="@string/clearButton"
+            android:onClick="performClearOperation"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -111,6 +114,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:text="@string/divideButton"
+            android:onClick="processOperator"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -127,6 +131,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/sevenButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -143,6 +148,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/eightButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -159,6 +165,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/nineButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -175,6 +182,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:text="@string/multiplyButton"
+            android:onClick="processOperator"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -191,6 +199,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/fourButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -207,6 +216,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/fiveButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -223,11 +233,12 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/sixButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/minusButton"
+            android:id="@+id/subtractButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_row="3"
@@ -239,6 +250,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:text="@string/subtractButton"
+            android:onClick="processOperator"
             android:textColor="@color/black"
             android:textSize="32sp" />
 
@@ -255,6 +267,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/oneButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -271,6 +284,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/twoButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -287,6 +301,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/threeButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -303,6 +318,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/light_grey"
             android:text="@string/addButton"
+            android:onClick="processOperator"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -319,6 +335,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/togglePosAndNeg"
+            android:onClick="togglePosAndNeg"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -335,6 +352,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/zeroButton"
+            android:onClick="processNumber"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -351,6 +369,7 @@
             android:layout_marginBottom="1dp"
             android:background="@color/white"
             android:text="@string/dotButton"
+            android:onClick="processDot"
             android:textColor="@color/black"
             android:textSize="24sp" />
 
@@ -367,6 +386,7 @@
             android:layout_marginBottom="1dp"
             android:background="@android:color/holo_blue_light"
             android:text="@string/equalButton"
+            android:onClick="handleEqualButtonClick"
             android:textColor="@color/black"
             android:textSize="24sp" />
     </GridLayout>
@@ -378,13 +398,11 @@
         android:gravity="end"
         android:paddingLeft="4dp"
         android:paddingRight="4dp"
-        android:text="492"
-        android:textColor="@color/black"
         android:textSize="60sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/numPadLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/operationResult" />
+        app:layout_constraintTop_toBottomOf="@+id/operationText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
